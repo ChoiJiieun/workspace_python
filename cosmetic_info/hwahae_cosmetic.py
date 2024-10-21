@@ -2,7 +2,7 @@ import requests
 import cx_Oracle
 from bs4 import BeautifulSoup
 
-url = "https://www.hwahae.co.kr/rankings?english_name=category&theme_id=4174"
+url = "https://www.hwahae.co.kr/rankings?english_name=category&theme_id=4518"
 res = requests.get(url)
 
 cos_list = []
@@ -43,7 +43,9 @@ cur = conn.cursor()
 for brand, name in zip(cos_list[0], cos_list[1]):
     cos_image = '/download?imageFileName='+name
     brand_image = '/download?imageFileName='+brand
-    cur.execute(sql, [name, cos_image, 'SC03', brand, brand_image])
+    cur.execute(sql, [name, cos_image, 'SC10', brand, brand_image])
 
 conn.commit()
 conn.close()
+
+# 현재 스킨케어만 진행함
