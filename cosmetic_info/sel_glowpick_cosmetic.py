@@ -13,7 +13,7 @@ cos_list.append([])
 # 브라우저 오픈
 driver = webdriver.Chrome()
 driver.implicitly_wait(3) # 브라우저가 켜질 때까지 대기.
-url = "https://www.glowpick.com/categories/33?ids=118"
+url = "https://www.glowpick.com/categories/4?ids=19"
 # url 페이지로 이동
 driver.get(url)
 time.sleep(1) # 1초 멈춤
@@ -43,7 +43,7 @@ cur = conn.cursor()
 for brand, name in zip(cos_list[0], cos_list[1]):
     cos_image = '/download?imageFileName='+name+'.jpg'
     brand_image = '/download?imageFileName='+brand+'.jpg'
-    cur.execute(sql, [name, cos_image, 'CP02', brand, brand_image])
+    cur.execute(sql, [name, cos_image, 'SC05', brand, brand_image])
     print(name, brand)
 
 conn.commit()
